@@ -1,81 +1,114 @@
 import { motion } from 'framer-motion';
 import aboutImg from '../assets/IMG_2289.JPG.jpeg';
 
+const stats = [
+  { value: '500+', label: 'Events Hosted' },
+  { value: '1,000', label: 'Guest Capacity' },
+  { value: '18+', label: 'Years of Trust' },
+  { value: '100%', label: 'Client Satisfaction' },
+];
+
 const About = () => {
   return (
-    <section id="about" className="py-32 bg-brand-light relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+    <section id="about" className="py-28 bg-cream relative overflow-hidden">
+      {/* Subtle warm accent circles */}
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-saffron/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-emerald/6 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
 
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <span className="h-[2px] w-8 bg-saffron rounded-full" />
+            <span className="text-saffron text-xs tracking-[0.3em] uppercase font-semibold">Who We Are</span>
+            <span className="h-[2px] w-8 bg-saffron rounded-full" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-serif text-neutral">
+            A Legacy Built on <span className="text-saffron italic font-light">Celebrations</span>
+          </h2>
+        </motion.div>
+
+        <div className="flex flex-col lg:flex-row items-center gap-16 xl:gap-24">
+
+          {/* Image side */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full lg:w-1/2 relative"
+            transition={{ duration: 0.9 }}
+            className="w-full lg:w-[45%] relative"
           >
-            {/* Elegant offset frame */}
-            <div className="absolute inset-0 border border-brand-gold/30 translate-x-6 translate-y-6 z-0"></div>
-
-            <div className="aspect-[3/4] relative z-10 shadow-2xl overflow-hidden">
+            {/* Offset border frame — emerald color */}
+            <div className="absolute inset-0 border-2 border-emerald/40 translate-x-5 translate-y-5 z-0 rounded-sm" />
+            
+            <div className="relative z-10 overflow-hidden rounded-sm shadow-2xl aspect-[4/5]">
               <img
                 src={aboutImg}
-                alt="Narayan Banquet Hall Interior"
-                className="w-full h-full object-cover object-center"
+                alt="Narayan Banquet Hall accommodation"
+                className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
               />
+              {/* Bottom overlay badge */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-saffron-deep/90 to-transparent px-6 pb-6 pt-16">
+                <p className="text-white font-serif italic text-lg">"Where every event becomes a memory."</p>
+                <p className="text-gold-light text-xs tracking-widest uppercase mt-1 font-semibold">— Narayan Banquet</p>
+              </div>
             </div>
-
-            {/* Floating quote */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.8 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute -bottom-10 -left-10 bg-white p-8 shadow-xl max-w-xs z-20 hidden md:block border-l-4 border-brand-gold"
-            >
-              <p className="font-serif italic text-brand-gray text-lg mb-2">"A masterpiece of space & elegance."</p>
-              <p className="text-xs uppercase tracking-widest text-brand-gold font-semibold">— Narayan Banquet</p>
-            </motion.div>
           </motion.div>
 
+          {/* Text side */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full lg:w-1/2"
+            transition={{ duration: 0.9 }}
+            className="w-full lg:w-[55%]"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-[1px] w-12 bg-brand-gold"></div>
-              <span className="uppercase tracking-[0.2em] text-sm font-semibold text-brand-gold">Our Legacy</span>
-            </div>
-
-            <h2 className="text-4xl md:text-6xl font-serif text-brand-dark mb-8 leading-tight">
-              A Tradition of <br />
-              <span className="italic font-light text-brand-gold">Excellence</span>
-            </h2>
-
-            <div className="space-y-6 text-gray-600 font-light leading-relaxed text-lg mb-12">
+            <div className="space-y-5 text-neutral/70 font-light leading-relaxed text-lg mb-10">
               <p>
-                Welcome to Narayan Banquet Hall, where we transform your special occasions into unforgettable, cinematic experiences. With our spacious halls and state-of-the-art facilities, we provide the perfect canvas for your dream events.
+                Welcome to <strong className="text-saffron font-semibold">Narayan Banquet Hall</strong> — a premier event venue nestled in the heart of Uttarakhand. Our spacious, vibrant halls have hosted hundreds of joyous weddings, corporate gatherings, and grand celebrations over the past 18 years.
               </p>
               <p>
-                Whether you are planning a grand wedding, a corporate gala, or an intimate gathering, our dedicated team of professionals ensures every meticulous detail is executed flawlessly.
+                Our vibrant, well-lit halls adorned with distinctive green ceiling motifs and warm orange walls create a uniquely festive atmosphere. We combine traditional warmth with modern facilities to make every event truly special.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-10">
-              <div>
-                <h4 className="text-5xl font-serif font-bold text-brand-dark mb-2">500<span className="text-brand-gold">+</span></h4>
-                <p className="text-xs text-gray-500 uppercase tracking-[0.15em] font-medium">Events Hosted</p>
-              </div>
-              <div>
-                <h4 className="text-5xl font-serif font-bold text-brand-dark mb-2">1,000</h4>
-                <p className="text-xs text-gray-500 uppercase tracking-[0.15em] font-medium">Guest Capacity</p>
-              </div>
+            {/* Feature bullets */}
+            <div className="space-y-3 mb-12">
+              {[
+                'Spacious main hall with capacity for 1000+ guests',
+                'In-house catering with multi-cuisine menu options',
+                'Dedicated bridal rooms & guest accommodation',
+                'Ample parking with security',
+              ].map((feat, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-saffron flex-shrink-0" />
+                  <span className="text-neutral/75 font-light text-sm">{feat}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+              {stats.map((s, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="text-center p-4 bg-white border border-saffron/15 rounded-sm shadow-sm"
+                >
+                  <p className="text-3xl font-serif font-bold text-saffron">{s.value}</p>
+                  <p className="text-[0.65rem] uppercase tracking-[0.15em] text-neutral/50 mt-1 font-medium">{s.label}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

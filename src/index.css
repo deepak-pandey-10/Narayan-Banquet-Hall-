@@ -1,14 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-brand-gold: #d4af37;
-  --color-brand-gold-light: #f3e5ab;
-  --color-brand-dark: #0a0a0a;
-  --color-brand-gray: #1a1a1a;
-  --color-brand-light: #faf9f6;
-  
-  --font-sans: 'Inter', sans-serif;
+  /* Core Brand Colors — drawn from the venue photos */
+  --color-saffron:        #e8710a;    /* orange walls  */
+  --color-saffron-light:  #f4a05a;    /* lighter saffron tint */
+  --color-saffron-deep:   #c45e07;    /* darker saffron */
+  --color-emerald:        #2d7a4f;    /* green ceiling motifs */
+  --color-emerald-light:  #4aab74;    /* lighter emerald */
+  --color-crimson:        #c0003a;    /* event drapes */
+  --color-gold:           #d4a017;    /* gold accents */
+  --color-gold-light:     #f5d27a;    /* lighter gold */
+  --color-cream:          #fdf6ec;    /* warm cream background */
+  --color-cream-dark:     #f5ead8;    /* slightly deeper cream */
+  --color-bark:           #5c3d1e;    /* brown wood paneling */
+  --color-bark-light:     #8b6240;    /* lighter brown */
+  --color-neutral:        #1a1a1a;    /* near black text */
+
+  --font-sans: 'Poppins', sans-serif;
   --font-serif: 'Playfair Display', serif;
 }
 
@@ -17,39 +26,53 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-brand-light text-brand-dark font-sans antialiased;
+    @apply bg-cream text-neutral font-sans antialiased;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight;
+  h1, h2, h3 {
+    @apply font-serif;
   }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-  background: #d4af37;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #b5952f;
-}
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #fdf6ec; }
+::-webkit-scrollbar-thumb { background: #e8710a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #c45e07; }
 
-/* Glassmorphism Utilities */
+/* ─── Glassmorphism ─── */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(253, 246, 236, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(232, 113, 10, 0.15);
 }
 
-.glass-dark {
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* ─── Decorative Mandala Pattern (used as background texture) ─── */
+.mandala-bg {
+  background-image: radial-gradient(circle at 1px 1px, rgba(232,113,10,0.06) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* ─── Section divider ─── */
+.wave-divider {
+  position: relative;
+}
+.wave-divider::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: inherit;
+  clip-path: ellipse(55% 100% at 50% 0%);
+}
+
+/* ─── Swiper custom arrows ─── */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #e8710a !important;
+}
+.swiper-pagination-bullet-active {
+  background: #e8710a !important;
 }

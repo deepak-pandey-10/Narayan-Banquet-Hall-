@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, Thumbs } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
+import 'swiper/css/thumbs';
 
-// Import all venue photos
 import img1 from '../assets/IMG_2283.jpg';
 import img2 from '../assets/IMG_2284.jpg';
 import img3 from '../assets/IMG_2285.jpg';
@@ -18,71 +18,74 @@ import img7 from '../assets/IMG_2291.jpg';
 import img8 from '../assets/IMG_2293.jpg';
 import img9 from '../assets/IMG_2294.jpg';
 
-const galleryImages = [
+const images = [
   { src: img1, label: 'Main Banquet Hall' },
-  { src: img2, label: 'Hall — Stage View' },
-  { src: img3, label: 'Grand Hall' },
-  { src: img4, label: 'Welcome Entrance' },
-  { src: img5, label: 'Hall Interior' },
-  { src: img6, label: 'Upper Level' },
-  { src: img7, label: 'Spacious Corridor' },
-  { src: img8, label: 'Hall Setup' },
-  { src: img9, label: 'Event Space' },
+  { src: img2, label: 'Stage & Décor Setup' },
+  { src: img3, label: 'Grand Hall — Side View' },
+  { src: img4, label: 'Celebration Space' },
+  { src: img5, label: 'Welcome Entrance' },
+  { src: img6, label: 'Upper Level Corridor' },
+  { src: img7, label: 'Panoramic Hall View' },
+  { src: img8, label: 'Hall Interior — Day' },
+  { src: img9, label: 'Event Ready Setup' },
 ];
 
 const Gallery = () => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
-    <section id="gallery" className="py-24 bg-brand-dark">
-      <div className="container mx-auto px-6 md:px-12 text-center">
+    <section id="gallery" className="py-28 bg-neutral relative overflow-hidden">
+      {/* Subtle pattern */}
+      <div className="absolute inset-0 mandala-bg opacity-20 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14"
         >
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-[1px] w-12 bg-brand-gold"></div>
-            <span className="uppercase tracking-[0.2em] text-sm font-semibold text-brand-gold">Photo Gallery</span>
-            <div className="h-[1px] w-12 bg-brand-gold"></div>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <span className="h-[2px] w-8 bg-saffron rounded-full" />
+            <span className="text-saffron text-xs tracking-[0.3em] uppercase font-semibold">Our Venue</span>
+            <span className="h-[2px] w-8 bg-saffron rounded-full" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4">
-            Captivating <span className="italic font-light text-brand-gold-light">Moments</span>
+          <h2 className="text-4xl md:text-5xl font-serif text-white mb-3">
+            A Glimpse of <span className="text-saffron italic font-light">Grandeur</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
-            Take a glimpse into the beautiful memories crafted at our venue.
+          <p className="text-white/50 max-w-xl mx-auto font-light">
+            Explore every corner of Narayan Banquet Hall through our curated photo gallery.
           </p>
         </motion.div>
 
         {/* Main Swiper */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="rounded-xl overflow-hidden shadow-2xl border border-white/5 mb-6"
+          className="overflow-hidden rounded-sm shadow-2xl border border-white/5 mb-4"
         >
           <Swiper
-            modules={[Navigation, Pagination, Autoplay, EffectFade]}
-            effect="fade"
+            modules={[Navigation, Pagination, Autoplay, Thumbs]}
+            thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
-            loop={true}
-            className="w-full aspect-[16/9]"
+            autoplay={{ delay: 4500, disableOnInteraction: false }}
+            loop
+            speed={800}
+            className="aspect-[16/9]"
           >
-            {galleryImages.map((item, index) => (
-              <SwiperSlide key={index}>
+            {images.map((img, i) => (
+              <SwiperSlide key={i}>
                 <div className="relative w-full h-full">
-                  <img
-                    src={item.src}
-                    alt={item.label}
-                    className="w-full h-full object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-                    <span className="text-white/80 text-sm uppercase tracking-[0.2em] font-medium bg-black/30 px-4 py-2 backdrop-blur-sm">
-                      {item.label}
+                  <img src={img.src} alt={img.label} className="w-full h-full object-cover object-center" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
+                    <span className="bg-saffron/90 text-white text-xs uppercase tracking-[0.2em] font-semibold px-5 py-2 backdrop-blur-sm">
+                      {img.label}
                     </span>
                   </div>
                 </div>
@@ -91,25 +94,27 @@ const Gallery = () => {
           </Swiper>
         </motion.div>
 
-        {/* Thumbnail Grid */}
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-          {galleryImages.slice(0, 5).map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="aspect-square overflow-hidden rounded-lg"
-            >
-              <img
-                src={item.src}
-                alt={item.label}
-                className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-500"
-              />
-            </motion.div>
+        {/* Thumbnail Swiper */}
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          modules={[Thumbs]}
+          spaceBetween={8}
+          slidesPerView={4}
+          watchSlidesProgress
+          breakpoints={{
+            640: { slidesPerView: 5 },
+            1024: { slidesPerView: 9 },
+          }}
+          className="thumbs-swiper"
+        >
+          {images.map((img, i) => (
+            <SwiperSlide key={i}>
+              <div className="aspect-square overflow-hidden rounded-sm cursor-pointer opacity-50 hover:opacity-100 transition-opacity duration-300 border-2 border-transparent [.swiper-slide-thumb-active_&]:opacity-100 [.swiper-slide-thumb-active_&]:border-saffron">
+                <img src={img.src} alt={img.label} className="w-full h-full object-cover object-center" />
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
