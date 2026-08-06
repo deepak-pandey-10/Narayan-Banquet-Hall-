@@ -55,7 +55,7 @@ const About = () => {
                 className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
               />
               {/* Bottom overlay badge */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-saffron-deep/90 to-transparent px-6 pb-6 pt-16">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-neutral/90 to-transparent px-6 pb-6 pt-16">
                 <p className="text-white font-serif italic text-lg">"Where every event becomes a memory."</p>
                 <p className="text-gold-light text-xs tracking-widest uppercase mt-1 font-semibold">— Narayan Banquet</p>
               </div>

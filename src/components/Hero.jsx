@@ -7,8 +7,8 @@ const Hero = () => {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img src={heroBg} alt="Narayan Banquet Hall Exterior" className="w-full h-full object-cover object-center" />
-        {/* Layered gradient: dark bottom + saffron tint overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-saffron-deep/80 via-neutral/50 to-neutral/80" />
+        {/* Layered gradient: dark bottom + dark tint overlay */}
+        <div className="absolute inset-0 bg-neutral/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral/90 via-transparent to-transparent" />
       </div>
 

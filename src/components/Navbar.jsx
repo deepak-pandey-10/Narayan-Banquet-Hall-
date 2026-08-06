@@ -5,6 +5,7 @@ const navLinks = [
   { name: 'Home',     href: '#hero' },
   { name: 'About',    href: '#about' },
   { name: 'Services', href: '#services' },
+  { name: 'Menu',     href: '#menu' },
   { name: 'Gallery',  href: '#gallery' },
   { name: 'Contact',  href: '#contact' },
 ];
@@ -32,11 +33,11 @@ const Navbar = () => {
 
         {/* Logo */}
         <a href="#" className="flex flex-col leading-none">
-          <span className={`font-serif text-2xl font-bold tracking-wider transition-colors duration-300 ${scrolled ? 'text-saffron' : 'text-white'}`}>
+          <span className={`font-serif text-2xl font-bold tracking-wider transition-colors duration-300 ${scrolled ? 'text-neutral' : 'text-white'}`}>
             NARAYAN
           </span>
           <span className={`text-[0.6rem] tracking-[0.35em] uppercase font-semibold transition-colors duration-300 ${scrolled ? 'text-emerald' : 'text-gold-light'}`}>
-            Banquet & Events
+            Banquet Hall
           </span>
         </a>
 
