@@ -2,14 +2,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Core Brand Colors — drawn from the venue photos */
-  --color-saffron:        #e8710a;    /* orange walls  */
-  --color-saffron-light:  #f4a05a;    /* lighter saffron tint */
-  --color-saffron-deep:   #c45e07;    /* darker saffron */
+  /* Core Brand Colors — Premium Gold and Emerald */
+  --color-saffron:        #C5A059;    /* Champagne Gold Base  */
+  --color-saffron-light:  #D9BC82;    /* Lighter Gold tint */
+  --color-saffron-deep:   #A8813C;    /* Deeper Gold */
   --color-emerald:        #2d7a4f;    /* green ceiling motifs */
   --color-emerald-light:  #4aab74;    /* lighter emerald */
   --color-crimson:        #c0003a;    /* event drapes */
-  --color-gold:           #d4a017;    /* gold accents */
+  --color-gold:           #d4a017;    /* standard gold */
   --color-gold-light:     #f5d27a;    /* lighter gold */
   --color-cream:          #fdf6ec;    /* warm cream background */
   --color-cream-dark:     #f5ead8;    /* slightly deeper cream */
@@ -36,20 +36,20 @@
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 7px; }
 ::-webkit-scrollbar-track { background: #fdf6ec; }
-::-webkit-scrollbar-thumb { background: #e8710a; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #c45e07; }
+::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #A8813C; }
 
 /* ─── Glassmorphism ─── */
 .glass {
   background: rgba(253, 246, 236, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(232, 113, 10, 0.15);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.15);
 }
 
 /* ─── Decorative Mandala Pattern (used as background texture) ─── */
 .mandala-bg {
-  background-image: radial-gradient(circle at 1px 1px, rgba(232,113,10,0.06) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(197, 160, 89, 0.08) 1px, transparent 0);
   background-size: 28px 28px;
 }
 
@@ -71,8 +71,8 @@
 /* ─── Swiper custom arrows ─── */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #e8710a !important;
+  color: #C5A059 !important;
 }
 .swiper-pagination-bullet-active {
-  background: #e8710a !important;
+  background: #C5A059 !important;
 }
