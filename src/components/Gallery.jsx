@@ -19,15 +19,15 @@ import img8 from '../assets/IMG_2293.jpg';
 import img9 from '../assets/IMG_2294.jpg';
 
 const images = [
-  { src: img1, label: 'Main Banquet Hall' },
-  { src: img2, label: 'Stage & Décor Setup' },
-  { src: img3, label: 'Grand Hall — Side View' },
-  { src: img4, label: 'Celebration Space' },
-  { src: img5, label: 'Welcome Entrance' },
-  { src: img6, label: 'Upper Level Corridor' },
-  { src: img7, label: 'Panoramic Hall View' },
-  { src: img8, label: 'Hall Interior — Day' },
-  { src: img9, label: 'Event Ready Setup' },
+  { src: img1},
+  { src: img2 },
+  { src: img3 },
+  { src: img4},
+  { src: img5 },
+  { src: img6 },
+  { src: img7 },
+  { src: img8 },
+  { src: img9 },
 ];
 
 const Gallery = () => {
@@ -75,7 +75,7 @@ const Gallery = () => {
             pagination={{ clickable: true }}
             autoplay={{ delay: 4500, disableOnInteraction: false }}
             loop
-            speed={800}
+            speed={1000}
             className="aspect-[16/9]"
           >
             {images.map((img, i) => (
@@ -84,9 +84,9 @@ const Gallery = () => {
                   <img src={img.src} alt={img.label} className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral/70 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-                    <span className="bg-saffron/90 text-white text-xs uppercase tracking-[0.2em] font-semibold px-5 py-2 backdrop-blur-sm">
+                    {/* <span className="bg-saffron/90 text-white text-xs uppercase tracking-[0.2em] font-semibold px-5 py-2 backdrop-blur-sm">
                       {img.label}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </SwiperSlide>
