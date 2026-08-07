@@ -72,7 +72,7 @@ const About = () => {
           >
             <div className="space-y-5 text-neutral/70 font-light leading-relaxed text-lg mb-10">
               <p>
-                Welcome to <strong className="text-saffron font-semibold">Narayan Banquet Hall</strong> — a premier event venue nestled in the heart of Uttarakhand. Our spacious, vibrant halls have hosted hundreds of joyous weddings, corporate gatherings, and grand celebrations over the past 18 years.
+                Welcome to <strong className="text-saffron font-semibold">Narayan Banquet Hall</strong> — a premier event venue nestled in Pithoragarh, right near the Sports Stadium in Machhina Kholi. Our spacious, vibrant halls have hosted hundreds of joyous weddings, corporate gatherings, and grand celebrations over the past 18 years.
               </p>
               <p>
                 Our vibrant, well-lit halls adorned with distinctive green ceiling motifs and warm orange walls create a uniquely festive atmosphere. We combine traditional warmth with modern facilities to make every event truly special.

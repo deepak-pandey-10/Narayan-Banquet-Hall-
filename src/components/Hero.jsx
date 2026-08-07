@@ -24,7 +24,7 @@ const Hero = () => {
           className="mb-5 flex items-center justify-center gap-3"
         >
           <span className="h-[1px] w-10 bg-gold" />
-          <span className="text-gold-light text-xs tracking-[0.35em] uppercase font-semibold">Since 2005 · Uttarakhand</span>
+          <span className="text-gold-light text-xs tracking-[0.35em] uppercase font-semibold">Since 2005 · Pithoragarh, UK</span>
           <span className="h-[1px] w-10 bg-gold" />
         </motion.div>
 

@@ -78,7 +78,7 @@ const Footer = () => {
             <h3 className="text-[0.7rem] uppercase tracking-[0.25em] text-white font-semibold mb-5">Find Us</h3>
             <ul className="space-y-4">
               {[
-                { Icon: FaMapMarkerAlt, text: 'Narayan Banquet Hall, Uttarakhand, India' },
+                { Icon: FaMapMarkerAlt, text: 'Near Sports Stadium, Jagdamba Colony, Pithoragarh, Uttarakhand' },
                 { Icon: FaPhoneAlt,     text: '+91 98765 43210' },
                 { Icon: FaEnvelope,     text: 'info@narayanbanquet.com' },
               ].map(({ Icon, text }, i) => (

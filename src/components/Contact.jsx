@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa';
 
 const infoItems = [
-  { icon: FaMapMarkerAlt, label: 'Address',    value: 'Narayan Banquet Hall, Uttarakhand, India' },
+  { icon: FaMapMarkerAlt, label: 'Address',    value: 'Near Sports Stadium, Jagdamba Colony, Machhina Kholi, Pithoragarh, Uttarakhand 262501' },
   { icon: FaPhoneAlt,     label: 'Phone',      value: '+91 98765 43210' },
   { icon: FaEnvelope,     label: 'Email',      value: 'info@narayanbanquet.com' },
   { icon: FaClock,        label: 'Open Hours', value: 'Mon – Sun: 9 AM – 9 PM' },
@@ -169,7 +169,7 @@ const Contact = () => {
           >
             <div className="w-full h-full min-h-[500px] border border-saffron/15 shadow-sm overflow-hidden rounded-sm">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112028.9866442654!2d77.12642517658744!3d28.662580434460143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=Sports%20Stadium,%20Jagdamba%20Colony,%20Pithoragarh&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700"
                 allowFullScreen=""
                 loading="lazy"
