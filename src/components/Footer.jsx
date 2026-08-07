@@ -86,7 +86,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 { Icon: FaMapMarkerAlt, text: 'Near Sports Stadium, Jagdamba Colony, Pithoragarh, Uttarakhand' },
-                { Icon: FaPhoneAlt,     text: '+91 98765 43210' },
+                { Icon: FaPhoneAlt,     text: '+91 98972 73236' },
  
               ].map(({ Icon, text }, i) => (
                 <li key={i} className="flex items-start gap-3">
