@@ -25,12 +25,12 @@ const Footer = () => {
           <div>
             <div className="mb-5">
               <p className="font-serif text-2xl font-bold text-white tracking-wider">NARAYAN</p>
-              <p className="text-[0.6rem] tracking-[0.35em] uppercase font-semibold text-saffron">Banquet & Events</p>
+              <p className="text-[0.6rem] tracking-[0.35em] uppercase font-semibold text-saffron">Banquet Hall</p>
             </div>
             <p className="text-white/40 text-sm leading-relaxed font-light mb-7">
               A premier banquet hall in Uttarakhand, creating unforgettable celebrations with warmth, elegance, and tradition.
             </p>
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               {[
                 { icon: FaFacebook, href: '#' },
                 { icon: FaInstagram, href: '#' },
@@ -44,7 +44,7 @@ const Footer = () => {
                   <Icon size={14} />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -87,7 +87,7 @@ const Footer = () => {
               {[
                 { Icon: FaMapMarkerAlt, text: 'Near Sports Stadium, Jagdamba Colony, Pithoragarh, Uttarakhand' },
                 { Icon: FaPhoneAlt,     text: '+91 98765 43210' },
-                { Icon: FaEnvelope,     text: 'info@narayanbanquet.com' },
+ 
               ].map(({ Icon, text }, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Icon size={12} className="text-saffron mt-1 flex-shrink-0" />
