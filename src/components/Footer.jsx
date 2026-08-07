@@ -1,6 +1,13 @@
 import { FaFacebook, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
-const quickLinks = ['Home', 'About', 'Services', 'Gallery', 'Contact'];
+const quickLinks = [
+  { name: 'Home', href: '#hero' },
+  { name: 'About', href: '#about' },
+  { name: 'Services', href: '#services' },
+  { name: 'Menu', href: '#menu' },
+  { name: 'Gallery', href: '#gallery' },
+  { name: 'Contact', href: '#contact' },
+];
 const serviceList = ['Wedding Ceremonies', 'Corporate Events', 'Birthday Parties', 'Anniversaries', 'Receptions', 'Custom Events'];
 
 const Footer = () => {
@@ -45,13 +52,13 @@ const Footer = () => {
             <h3 className="text-[0.7rem] uppercase tracking-[0.25em] text-white font-semibold mb-5">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <a
-                    href={`#${item.toLowerCase()}`}
+                    href={item.href}
                     className="text-sm font-light hover:text-saffron transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-saffron/40 group-hover:bg-saffron transition-colors duration-300" />
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
