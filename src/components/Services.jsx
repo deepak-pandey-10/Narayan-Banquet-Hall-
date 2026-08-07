@@ -1,59 +1,74 @@
 import { motion } from 'framer-motion';
-import { FaUtensils, FaCamera, FaMusic, FaGlassCheers, FaParking, FaSnowflake } from 'react-icons/fa';
+import {
+  FaCamera,
+  FaCheck,
+  FaGlassCheers,
+  FaMusic,
+  FaParking,
+  FaRegCalendarCheck,
+  FaSnowflake,
+  FaUtensils,
+} from 'react-icons/fa';
+import serviceImg from '../assets/IMG_2291.jpg';
 
 const services = [
   {
-    icon: <FaUtensils size={22} className="text-saffron" />,
+    icon: FaUtensils,
     title: 'Gourmet Catering',
     desc: 'Multi-cuisine menus crafted by expert chefs — from traditional Indian feasts to continental spreads.',
-    accent: 'from-saffron/10 to-saffron/5',
-    border: 'border-saffron/20',
+    accent: 'text-saffron bg-saffron/10 border-saffron/20',
+    line: 'bg-saffron',
   },
   {
-    icon: <FaGlassCheers size={22} className="text-emerald" />,
+    icon: FaGlassCheers,
     title: 'Elegant Décor',
     desc: 'Bespoke floral arrangements, stage setups, and thematic décor that breathe life into your vision.',
-    accent: 'from-emerald/10 to-emerald/5',
-    border: 'border-emerald/20',
+    accent: 'text-emerald bg-emerald/10 border-emerald/20',
+    line: 'bg-emerald',
   },
   {
-    icon: <FaCamera size={22} className="text-crimson" />,
+    icon: FaCamera,
     title: 'Photography',
     desc: 'Professional photography and videography to preserve every cherished moment beautifully.',
-    accent: 'from-crimson/10 to-crimson/5',
-    border: 'border-crimson/20',
+    accent: 'text-crimson bg-crimson/10 border-crimson/20',
+    line: 'bg-crimson',
   },
   {
-    icon: <FaMusic size={22} className="text-saffron" />,
+    icon: FaMusic,
     title: 'Entertainment',
     desc: 'Live bands, DJs, and anchoring services to keep the energy high and guests engaged throughout.',
-    accent: 'from-saffron/10 to-saffron/5',
-    border: 'border-saffron/20',
+    accent: 'text-saffron bg-saffron/10 border-saffron/20',
+    line: 'bg-saffron',
   },
   {
-    icon: <FaParking size={22} className="text-emerald" />,
+    icon: FaParking,
     title: 'Ample Parking',
     desc: 'Spacious and secure parking facility ensuring a convenient, hassle-free arrival for all guests.',
-    accent: 'from-emerald/10 to-emerald/5',
-    border: 'border-emerald/20',
+    accent: 'text-emerald bg-emerald/10 border-emerald/20',
+    line: 'bg-emerald',
   },
   {
-    icon: <FaSnowflake size={22} className="text-crimson" />,
+    icon: FaSnowflake,
     title: 'Comfort & Climate',
     desc: 'Fully air-conditioned halls with backup power ensuring perfect comfort in any weather.',
-    accent: 'from-crimson/10 to-crimson/5',
-    border: 'border-crimson/20',
+    accent: 'text-crimson bg-crimson/10 border-crimson/20',
+    line: 'bg-crimson',
   },
+];
+
+const highlights = [
+  'Dedicated event planning support',
+  'Custom layouts for every celebration',
+  'Trusted local vendor coordination',
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-28 bg-white relative overflow-hidden">
-      {/* Background dot texture */}
+    <section id="services" className="py-24 md:py-28 bg-white relative overflow-hidden">
       <div className="absolute inset-0 mandala-bg opacity-60 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-cream/70 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,27 +89,102 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((svc, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className={`group relative p-8 bg-gradient-to-br ${svc.accent} border ${svc.border} rounded-sm hover:shadow-xl transition-all duration-500 overflow-hidden`}
-            >
-              {/* Hover line */}
-              <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-saffron group-hover:w-full transition-all duration-500 rounded-full" />
-
-              <div className={`w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5 shadow-sm border ${svc.border} group-hover:scale-110 transition-transform duration-300`}>
-                {svc.icon}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-10 items-stretch mb-10">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 relative min-h-[460px] overflow-hidden rounded-sm shadow-2xl"
+          >
+            <img
+              src={serviceImg}
+              alt="Decorated Narayan Banquet Hall event space"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral/90 via-neutral/30 to-transparent" />
+            <div className="absolute inset-0 border border-white/15" />
+            <div className="absolute left-6 right-6 bottom-6 md:left-8 md:right-8 md:bottom-8">
+              <div className="inline-flex items-center gap-2 bg-white/12 backdrop-blur-md border border-white/20 px-4 py-2 mb-5">
+                <FaRegCalendarCheck className="text-saffron-light" size={14} />
+                <span className="text-white/85 text-[0.65rem] uppercase tracking-[0.2em] font-semibold">
+                  End-to-End Planning
+                </span>
               </div>
-              <h3 className="text-lg font-serif font-semibold text-neutral mb-2">{svc.title}</h3>
-              <p className="text-neutral/60 font-light text-sm leading-relaxed">{svc.desc}</p>
+              <h3 className="text-3xl md:text-4xl font-serif text-white leading-tight mb-4">
+                One team for every part of your event.
+              </h3>
+              <p className="text-white/68 font-light leading-relaxed max-w-md">
+                From first walkthrough to the final guest departure, our team keeps the setup, food, décor, and flow coordinated.
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6 }}
+              className="sm:col-span-2 bg-cream border border-saffron/15 p-6 md:p-7 shadow-sm"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {highlights.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 w-7 h-7 rounded-full bg-white border border-saffron/20 flex items-center justify-center flex-shrink-0">
+                      <FaCheck className="text-saffron" size={10} />
+                    </span>
+                    <p className="text-sm text-neutral/70 leading-relaxed font-light">{item}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
-          ))}
+
+            {services.map((svc, i) => {
+              const Icon = svc.icon;
+              return (
+                <motion.div
+                  key={svc.title}
+                  initial={{ opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.55, delay: i * 0.06 }}
+                  className="group relative bg-white border border-neutral/10 p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-saffron/30 transition-all duration-500 overflow-hidden"
+                >
+                  <div className={`absolute top-0 left-0 h-1 w-14 ${svc.line} group-hover:w-full transition-all duration-500`} />
+                  <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-cream opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className={`relative w-12 h-12 border ${svc.accent} flex items-center justify-center mb-5 shadow-sm`}>
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="relative text-xl font-serif font-semibold text-neutral mb-2">{svc.title}</h3>
+                  <p className="relative text-neutral/60 font-light text-sm leading-relaxed">{svc.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7 }}
+          className="bg-neutral text-white border border-saffron/25 px-6 py-7 md:px-9 md:py-8 shadow-xl shadow-neutral/10"
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="text-saffron-light text-xs tracking-[0.25em] uppercase font-semibold mb-2">Need a custom setup?</p>
+              <h3 className="text-2xl md:text-3xl font-serif leading-tight">Tell us the occasion, guest count, and date.</h3>
+            </div>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center px-7 py-4 bg-saffron hover:bg-saffron-deep text-white font-semibold tracking-widest uppercase text-xs transition-colors duration-300 shadow-lg shadow-saffron/20"
+            >
+              Plan My Event
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

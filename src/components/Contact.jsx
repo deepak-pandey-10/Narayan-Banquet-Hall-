@@ -1,43 +1,46 @@
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa';
+import { FaClock, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+
+const phoneNumber = '+91 9897273236';
+const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}`;
+const address = 'Narayan Banquet Hall, Pithoragarh, near Sports Stadium, Jagdamba Colony, Road, Pithoragarh, Machhina Kholi, Uttarakhand 262501';
+const encodedAddress = encodeURIComponent(address);
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+const mapEmbedUrl = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
 const infoItems = [
-  { icon: FaMapMarkerAlt, label: 'Address',    value: 'Near Sports Stadium, Jagdamba Colony, Machhina Kholi, Pithoragarh, Uttarakhand 262501' },
-  { icon: FaPhoneAlt,     label: 'Phone',      value: '+91 98765 43210' },
-  { icon: FaEnvelope,     label: 'Email',      value: 'info@narayanbanquet.com' },
-  { icon: FaClock,        label: 'Open Hours', value: 'Mon – Sun: 9 AM – 9 PM' },
+  {
+    icon: FaMapMarkerAlt,
+    label: 'Location',
+    value: address,
+    action: 'Open in Maps',
+    href: mapsUrl,
+    accent: 'bg-saffron/10 text-saffron border-saffron/20',
+  },
+  {
+    icon: FaWhatsapp,
+    label: 'Phone / WhatsApp',
+    value: phoneNumber,
+    action: 'Chat on WhatsApp',
+    href: whatsappUrl,
+    accent: 'bg-emerald/10 text-emerald border-emerald/20',
+  },
+  {
+    icon: FaClock,
+    label: 'Opening Hours',
+    value: 'Mon - Sun: 9 AM - 9 PM',
+    action: 'Open Daily',
+    accent: 'bg-crimson/10 text-crimson border-crimson/20',
+  },
 ];
 
-const eventTypes = ['Wedding', 'Engagement', 'Birthday', 'Anniversary', 'Corporate Event', 'Other'];
-
 const Contact = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-    toast.success("🎉 Request received! We'll be in touch soon.", {
-      position: 'bottom-right',
-      autoClose: 5000,
-      theme: 'colored',
-      style: { background: '#e8710a' },
-    });
-    reset();
-  };
-
   return (
-    <section id="contact" className="py-28 bg-cream-dark relative overflow-hidden">
-      <ToastContainer />
-
-      {/* Background accents */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-saffron/8 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald/8 rounded-full blur-3xl translate-y-1/2 pointer-events-none" />
+    <section id="contact" className="py-24 md:py-28 bg-cream-dark relative overflow-hidden">
+      <div className="absolute inset-0 mandala-bg opacity-50 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-white/70 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
-
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,131 +54,74 @@ const Contact = () => {
             <span className="h-[2px] w-8 bg-saffron rounded-full" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-neutral mb-3">
-            Book Your <span className="text-saffron italic font-light">Celebration</span>
+            Visit or <span className="text-saffron italic font-light">Message Us</span>
           </h2>
           <p className="text-neutral/55 max-w-xl mx-auto font-light leading-relaxed">
-            Ready to celebrate? Fill in the form below and our team will get back to you within 24 hours.
+            Find us easily, call through WhatsApp, or drop by during our daily opening hours.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-stretch">
+          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-5">
+            {infoItems.map(({ icon: Icon, label, value, action, href, accent }, i) => {
+              const Card = href ? 'a' : 'div';
 
-          {/* Left col — info + form (3/5) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-3 space-y-8"
-          >
-            {/* Info cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {infoItems.map(({ icon: Icon, label, value }, i) => (
-                <div key={i} className="flex items-start gap-4 bg-white p-5 border border-saffron/10 shadow-sm hover:shadow-md hover:border-saffron/30 transition-all duration-300">
-                  <div className="w-9 h-9 rounded-full bg-saffron/10 flex items-center justify-center flex-shrink-0">
-                    <Icon size={13} className="text-saffron" />
-                  </div>
-                  <div>
-                    <p className="text-[0.65rem] uppercase tracking-widest text-neutral/40 font-semibold mb-0.5">{label}</p>
-                    <p className="text-neutral/80 font-light text-sm leading-snug">{value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Form */}
-            <div className="bg-white p-8 border border-saffron/10 shadow-sm">
-              <h3 className="text-xl font-serif text-neutral mb-7">Send a Booking Request</h3>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {[
-                    { id: 'firstName', label: 'First Name', placeholder: 'Raj', rule: { required: true } },
-                    { id: 'lastName',  label: 'Last Name',  placeholder: 'Sharma', rule: { required: true } },
-                  ].map(({ id, label, placeholder, rule }) => (
-                    <div key={id}>
-                      <label className="block text-[0.65rem] uppercase tracking-widest text-neutral/50 font-semibold mb-2">{label}</label>
-                      <input
-                        {...register(id, rule)}
-                        placeholder={placeholder}
-                        className="w-full px-4 py-3 bg-cream text-sm border border-gray-200 focus:border-saffron outline-none transition-colors"
-                      />
-                      {errors[id] && <span className="text-crimson text-xs mt-1 block">This field is required</span>}
-                    </div>
-                  ))}
-                </div>
-
-                <div>
-                  <label className="block text-[0.65rem] uppercase tracking-widest text-neutral/50 font-semibold mb-2">Email Address</label>
-                  <input
-                    type="email"
-                    {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-                    placeholder="raj@example.com"
-                    className="w-full px-4 py-3 bg-cream text-sm border border-gray-200 focus:border-saffron outline-none transition-colors"
-                  />
-                  {errors.email && <span className="text-crimson text-xs mt-1 block">Valid email required</span>}
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-[0.65rem] uppercase tracking-widest text-neutral/50 font-semibold mb-2">Event Type</label>
-                    <select
-                      {...register('eventType', { required: true })}
-                      className="w-full px-4 py-3 bg-cream text-sm border border-gray-200 focus:border-saffron outline-none transition-colors text-neutral/70"
-                    >
-                      <option value="">Select type</option>
-                      {eventTypes.map((t) => <option key={t}>{t}</option>)}
-                    </select>
-                    {errors.eventType && <span className="text-crimson text-xs mt-1 block">Required</span>}
-                  </div>
-                  <div>
-                    <label className="block text-[0.65rem] uppercase tracking-widest text-neutral/50 font-semibold mb-2">Preferred Date</label>
-                    <input
-                      type="date"
-                      {...register('date', { required: true })}
-                      className="w-full px-4 py-3 bg-cream text-sm border border-gray-200 focus:border-saffron outline-none transition-colors text-neutral/70"
-                    />
-                    {errors.date && <span className="text-crimson text-xs mt-1 block">Required</span>}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[0.65rem] uppercase tracking-widest text-neutral/50 font-semibold mb-2">Message / Requirements</label>
-                  <textarea
-                    {...register('message')}
-                    rows={4}
-                    placeholder="Expected guest count, special requirements..."
-                    className="w-full px-4 py-3 bg-cream text-sm border border-gray-200 focus:border-saffron outline-none transition-colors resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-saffron hover:bg-saffron-deep text-white font-semibold uppercase tracking-widest py-4 text-sm transition-colors duration-300 shadow-md shadow-saffron/20"
+              return (
+                <motion.div
+                  key={label}
+                  initial={{ opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.6, delay: i * 0.08 }}
+                  className="h-full"
                 >
-                  Submit Booking Request
-                </button>
-              </form>
-            </div>
-          </motion.div>
+                  <Card
+                    href={href}
+                    target={href ? '_blank' : undefined}
+                    rel={href ? 'noreferrer' : undefined}
+                    className="group relative flex h-full min-h-[150px] items-start gap-5 bg-white border border-saffron/15 p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-saffron/35 transition-all duration-500 overflow-hidden"
+                  >
+                    <div className="absolute inset-y-0 left-0 w-1 bg-saffron scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500" />
+                    <div className={`w-13 h-13 border ${accent} flex items-center justify-center shadow-sm flex-shrink-0`}>
+                      <Icon size={20} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[0.68rem] uppercase tracking-[0.24em] text-neutral/40 font-semibold mb-2">{label}</p>
+                      <h3 className="text-lg md:text-xl font-serif text-neutral leading-snug mb-4">{value}</h3>
+                      <span className="text-xs uppercase tracking-[0.2em] text-saffron font-semibold">
+                        {action}
+                      </span>
+                    </div>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
 
-          {/* Right col — Map (2/5) */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-2 min-h-[500px]"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:col-span-2 bg-white border border-saffron/15 p-3 shadow-xl shadow-neutral/5"
           >
-            <div className="w-full h-full min-h-[500px] border border-saffron/15 shadow-sm overflow-hidden rounded-sm">
+            <div className="relative h-[360px] lg:h-full min-h-[500px] overflow-hidden">
               <iframe
-                src="https://maps.google.com/maps?q=Sports%20Stadium,%20Jagdamba%20Colony,%20Pithoragarh&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src={mapEmbedUrl}
                 className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Narayan Banquet Hall Location"
               />
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="absolute left-4 bottom-4 bg-saffron hover:bg-saffron-deep text-white px-5 py-3 text-xs uppercase tracking-[0.18em] font-semibold shadow-lg transition-colors duration-300"
+              >
+                Open in Maps
+              </a>
             </div>
           </motion.div>
         </div>

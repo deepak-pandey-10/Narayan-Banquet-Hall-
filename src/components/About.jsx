@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import aboutImg from '../assets/IMG_2289.JPG.jpeg';
+import aboutImg from '../assets/about-hall-upright.jpeg';
 
 const stats = [
   { value: '500+', label: 'Events Hosted' },
   { value: '1,000', label: 'Guest Capacity' },
-  { value: '18+', label: 'Years of Trust' },
+  { value: '8+', label: 'Years of Trust' },
   { value: '100%', label: 'Client Satisfaction' },
 ];
 
@@ -48,7 +48,7 @@ const About = () => {
             {/* Offset border frame — emerald color */}
             <div className="absolute inset-0 border-2 border-emerald/40 translate-x-5 translate-y-5 z-0 rounded-sm" />
             
-            <div className="relative z-10 overflow-hidden rounded-sm shadow-2xl aspect-[4/5]">
+            <div className="relative z-10 overflow-hidden rounded-sm shadow-2xl aspect-[4/5] lg:aspect-[4/4.6]">
               <img
                 src={aboutImg}
                 alt="Narayan Banquet Hall accommodation"
