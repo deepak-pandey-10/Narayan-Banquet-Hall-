@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/logo.jpg';
 
 const navLinks = [
   { name: 'Home',     href: '#hero' },
@@ -32,13 +33,20 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
 
         {/* Logo */}
-        <a href="#" className="flex flex-col leading-none">
-          <span className={`font-serif text-2xl font-bold tracking-wider transition-colors duration-300 ${scrolled ? 'text-neutral' : 'text-white'}`}>
-            NARAYAN
-          </span>
-          <span className={`text-[0.6rem] tracking-[0.35em] uppercase font-semibold transition-colors duration-300 ${scrolled ? 'text-emerald' : 'text-gold-light'}`}>
-            Banquet Hall
-          </span>
+        <a href="#" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="Narayan Banquet Hall Logo"
+            className="w-10 h-10 rounded-full border border-saffron/30 object-cover bg-white"
+          />
+          <div className="flex flex-col leading-none">
+            <span className={`font-serif text-xl font-bold tracking-wider transition-colors duration-300 ${scrolled ? 'text-neutral' : 'text-white'}`}>
+              NARAYAN
+            </span>
+            <span className={`text-[0.55rem] tracking-[0.3em] uppercase font-semibold transition-colors duration-300 ${scrolled ? 'text-emerald' : 'text-gold-light'}`}>
+              Banquet Hall
+            </span>
+          </div>
         </a>
 
         {/* Desktop links */}

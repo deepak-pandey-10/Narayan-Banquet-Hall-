@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import logo from '../assets/logo.jpg';
 
 const quickLinks = [
   { name: 'Home', href: '#hero' },
@@ -23,9 +24,16 @@ const Footer = () => {
 
           {/* Brand */}
           <div>
-            <div className="mb-5">
-              <p className="font-serif text-2xl font-bold text-white tracking-wider">NARAYAN</p>
-              <p className="text-[0.6rem] tracking-[0.35em] uppercase font-semibold text-saffron">Banquet Hall</p>
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src={logo}
+                alt="Narayan Banquet Hall Logo"
+                className="w-12 h-12 rounded-full border border-saffron/30 object-cover bg-white"
+              />
+              <div className="leading-none">
+                <p className="font-serif text-xl font-bold text-white tracking-wider">NARAYAN</p>
+                <p className="text-[0.55rem] tracking-[0.3em] uppercase font-semibold text-saffron">Banquet Hall</p>
+              </div>
             </div>
             <p className="text-white/40 text-sm leading-relaxed font-light mb-7">
               A premier banquet hall in Uttarakhand, creating unforgettable celebrations with warmth, elegance, and tradition.
